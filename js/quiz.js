@@ -1,4 +1,4 @@
-const q = [
+var q = [
     {q:"HTML principal?",o:["main","body","section","article"],a:0},
     {q:"CSS grille?",o:["flex","grid","block","inline"],a:1},
     {q:"JS constant?",o:["var","let","const","constant"],a:2},
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showQ() {
-    let h = '';
+    var h = '';
     q.forEach((i, n) => {
         h += `<div class="card mb-3"><div class="card-header">Q${n+1}: ${i.q}</div><div class="card-body">`;
         i.o.forEach((o, j) => {
@@ -33,12 +33,12 @@ function showQ() {
 }
 
 function check() {
-    let s = 0, r = '';
+    var s = 0, r = '';
     
     q.forEach((i, n) => {
-        const sel = document.querySelector(`input[name="q${n}"]:checked`);
-        const u = sel ? parseInt(sel.value) : null;
-        const c = u === i.a;
+        var sel = document.querySelector(`input[name="q${n}"]:checked`);
+        var u = sel ? parseInt(sel.value) : null;
+        var c = u === i.a;
         if (c) s++;
         
         r += `<div class="mb-3 ${c?'border-success':'border-danger'} border p-3">
@@ -48,7 +48,7 @@ function check() {
         </div>`;
     });
     
-    const p = (s/q.length*100).toFixed(1);
+    var p = (s/q.length*100).toFixed(1);
     document.getElementById('score-display').innerHTML = `
         <div class="alert ${p>=60?'alert-success':'alert-warning'}">
             <h4>Score: ${s}/${q.length} (${p}%)</h4>

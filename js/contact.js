@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const msg = document.getElementById('message');
-    const charCount = document.getElementById('char-count');
-    const confirmMsg = document.getElementById('confirmation-message');
-    const submitBtn = document.getElementById('submit-btn');
+    var form = document.getElementById('contact-form');
+    var msg = document.getElementById('message');
+    var charCount = document.getElementById('char-count');
+    var confirmMsg = document.getElementById('confirmation-message');
+    var submitBtn = document.getElementById('submit-btn');
     
     if (msg && charCount) {
         msg.addEventListener('input', () => {
-            const len = msg.value.length;
+            var len = msg.value.length;
             charCount.textContent = `${len}/1000`;
             charCount.className = len > 900 ? 'text-danger' : len > 700 ? 'text-warning' : '';
         });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     document.getElementById('fichier')?.addEventListener('change', function() {
-        const file = this.files[0];
+        var file = this.files[0];
         if (!file) return;
         
         if (file.size > 5e6) {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        const ext = '.' + file.name.split('.').pop().toLowerCase();
+        var ext = '.' + file.name.split('.').pop().toLowerCase();
         if (!['.pdf','.doc','.docx','.jpg','.jpeg','.png'].includes(ext)) {
             alert('Format non supporté');
             this.value = '';
